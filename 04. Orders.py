@@ -1,19 +1,17 @@
-text = input()
-name_price_dict = {}
-name_quantity_dict = {}
+def total_price(product, quantity):
+    result = None
+    if product == 'coffee':
+        result = quantity * 1.50
+    elif product == 'water':
+        result = quantity * 1
+    elif product == 'coke':
+        result = quantity * 1.40
+    elif product == 'snacks':
+        result = quantity * 2
+    return result
 
-while text != 'buy':
-    tokens = text.split()
-    item = tokens[0]
-    price = float(tokens[1])
-    quantity = int(tokens[2])
-    if item not in name_price_dict:
-        name_price_dict[item] = 0
-    name_price_dict[item] = price
-    if item not in name_quantity_dict:
-        name_quantity_dict[item] = 0
-    name_quantity_dict[item] += quantity
-    text = input()
 
-for k in name_price_dict:
-    print(f'{k} -> {(name_price_dict[k] * name_quantity_dict[k]):.2f}')
+product = input()
+quantity = int(input())
+
+print(f'{total_price(product, quantity):.2f}')
